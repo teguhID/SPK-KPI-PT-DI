@@ -1,36 +1,35 @@
-@extends('layouts.layoutApp')
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <!-- Sidebar -->
 <ul class="sidebar navbar-nav">
         <li class="nav-item" id="dashboard">
-            <a class="nav-link" href="{{ url('/home') }}">
+            <a class="nav-link" href="<?php echo e(url('/home')); ?>">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
           </a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="{{url('/home/dataKaryawan')}}">
+          <a class="nav-link" href="<?php echo e(url('/home/dataKaryawan')); ?>">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Data Karyawan</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{url('/home/dataNilaiKaryawan')}}">
+          <a class="nav-link" href="<?php echo e(url('/home/dataNilaiKaryawan')); ?>">
             <i class="fas fa-fw fa-table"></i>
             <span>Data Nilai karyawan</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{url('/home/nilaiBobot')}}">
+          <a class="nav-link" href="<?php echo e(url('/home/nilaiBobot')); ?>">
             <i class="fas fa-fw fa-table"></i>
             <span>Nilai Bobot</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{url('/home/nilaiNormalisasi')}}">
+          <a class="nav-link" href="<?php echo e(url('/home/nilaiNormalisasi')); ?>">
             <i class="fas fa-fw fa-table"></i>
             <span>Nilai Normalisasi</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{url('/home/nilaiHasil')}}">
+          <a class="nav-link" href="<?php echo e(url('/home/nilaiHasil')); ?>">
             <i class="fas fa-fw fa-table"></i>
             <span>Nilai Hasil</span></a>
         </li>
@@ -39,8 +38,9 @@
 
 <div id="content-wrapper">
     <div class="container-fluid">
-            <form style="padding: 70px" action="{{ url('dataKaryawan') }}" method="post">
-                {{ csrf_field() }}
+            <form style="padding: 70px" action="<?php echo e(url('dataKaryawan')); ?>" method="post">
+                <?php echo e(csrf_field()); ?>
+
                 <div class="form-group row">
                     <label for="colFormLabel" class="col-sm-2 col-form-label">Nama</label>
                     <div class="col-sm-10">
@@ -69,7 +69,7 @@
                             <option value="Pria">Pria</option>
                             <option value="Wanita">Wanita</option>
                         </select>
-                        {{-- <input type="text" class="form-control" id="jenisKelamin" name="jenisKelamin"> --}}
+                        
                     </div>
                 </div>
                 <div class="form-group row">
@@ -97,15 +97,15 @@
                     <label for="colFormLabel" class="col-sm-2 col-form-label">Jabatan</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="jabatan" name="jabatan" readonly
-                            @if ( Auth::user()->jabatan == 'HRD' )
+                            <?php if( Auth::user()->jabatan == 'HRD' ): ?>
                                 value="Manager"
-                            @endif
-                            @if ( Auth::user()->jabatan == 'Manager' )
+                            <?php endif; ?>
+                            <?php if( Auth::user()->jabatan == 'Manager' ): ?>
                                 value="SPV"
-                            @endif
-                            @if ( Auth::user()->jabatan == 'SPV' )
+                            <?php endif; ?>
+                            <?php if( Auth::user()->jabatan == 'SPV' ): ?>
                                 value="Staff"
-                            @endif
+                            <?php endif; ?>
                         >
                     </div>
                 </div>
@@ -139,4 +139,5 @@
     </footer>
 
   </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.layoutApp', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Projects\Laravel\SPK-KPI-PT-DI\resources\views/dataKaryawan/buatData.blade.php ENDPATH**/ ?>

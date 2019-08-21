@@ -1,36 +1,35 @@
-@extends('layouts.layoutApp')
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <!-- Sidebar -->
 <ul class="sidebar navbar-nav">
   <li class="nav-item active" id="dashboard">
-      <a class="nav-link" href="{{ url('/home') }}">
+      <a class="nav-link" href="<?php echo e(url('/home')); ?>">
       <i class="fas fa-fw fa-tachometer-alt"></i>
       <span>Dashboard</span>
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{{url('/home/dataKaryawan')}}">
+    <a class="nav-link" href="<?php echo e(url('/home/dataKaryawan')); ?>">
       <i class="fas fa-fw fa-chart-area"></i>
       <span>Data Karyawan</span></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{{url('/home/dataNilaiKaryawan')}}">
+    <a class="nav-link" href="<?php echo e(url('/home/dataNilaiKaryawan')); ?>">
       <i class="fas fa-fw fa-table"></i>
       <span>Data Nilai karyawan</span></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{{url('/home/nilaiBobot')}}">
+    <a class="nav-link" href="<?php echo e(url('/home/nilaiBobot')); ?>">
       <i class="fas fa-fw fa-table"></i>
       <span>Nilai Bobot</span></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{{url('/home/nilaiNormalisasi')}}">
+    <a class="nav-link" href="<?php echo e(url('/home/nilaiNormalisasi')); ?>">
       <i class="fas fa-fw fa-table"></i>
       <span>Nilai Normalisasi</span></a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="{{url('/home/nilaiHasil')}}">
+    <a class="nav-link" href="<?php echo e(url('/home/nilaiHasil')); ?>">
       <i class="fas fa-fw fa-table"></i>
       <span>Nilai Hasil</span></a>
   </li>
@@ -57,9 +56,9 @@
               <div class="card-body-icon">
                 <i class="fas fa-user-friends"></i>
               </div>
-              <div class="mr-5"><strong style="font-size: 30px">{{ $jumlahKaryawan }}</strong> Data Karyawan</div>
+              <div class="mr-5"><strong style="font-size: 30px"><?php echo e($jumlahKaryawan); ?></strong> Data Karyawan</div>
             </div>
-              <a class="card-footer text-white clearfix small z-1" href="{{ url('/home/dataKaryawan') }}">
+              <a class="card-footer text-white clearfix small z-1" href="<?php echo e(url('/home/dataKaryawan')); ?>">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fas fa-angle-right"></i>
@@ -74,9 +73,9 @@
                 <i class="fas fa-crown"></i>
               </div>
               <div class="mr-5" style="font-size: 15px"><strong>Karyawan Terbaik</strong></div>
-              <div class="mr-5">{{ $terbaik->nama }} ({{ $terbaik->hasil }})</div>
+              <div class="mr-5"><?php echo e($terbaik->nama); ?> (<?php echo e($terbaik->hasil); ?>)</div>
             </div>
-              <a class="card-footer text-white clearfix small z-1" href="{{ url('/home/nilaiHasil') }}">
+              <a class="card-footer text-white clearfix small z-1" href="<?php echo e(url('/home/nilaiHasil')); ?>">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fas fa-angle-right"></i>
@@ -91,9 +90,9 @@
                 <i class="fas fa-balance-scale"></i>
               </div>
               <div class="mr-7">Nilai Rata-Rata karyawan</div>
-              <div class="mr-5"><strong style="font-size: 20px">{{ number_format((float)$rata2Nilai, 2, '.', '') }}</strong></div>
+              <div class="mr-5"><strong style="font-size: 20px"><?php echo e(number_format((float)$rata2Nilai, 2, '.', '')); ?></strong></div>
             </div>
-              <a class="card-footer text-white clearfix small z-1" href="{{ url('/home/nilaiHasil') }}">
+              <a class="card-footer text-white clearfix small z-1" href="<?php echo e(url('/home/nilaiHasil')); ?>">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fas fa-angle-right"></i>
@@ -116,4 +115,5 @@
     </footer>
 
   </div>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.layoutApp', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Projects\Laravel\SPK-KPI-PT-DI\resources\views/nav/dashboard.blade.php ENDPATH**/ ?>

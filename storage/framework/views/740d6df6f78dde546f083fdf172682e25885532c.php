@@ -1,37 +1,36 @@
-@extends('layouts.layoutApp')
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 
 <!-- Sidebar -->
 <ul class="sidebar navbar-nav">
     <li class="nav-item" id="dashboard">
-        <a class="nav-link" href="{{ url('/home') }}">
+        <a class="nav-link" href="<?php echo e(url('/home')); ?>">
         <i class="fas fa-fw fa-tachometer-alt"></i>
         <span>Dashboard</span>
       </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link active" href="{{url('/home/dataKaryawan')}}">
+      <a class="nav-link active" href="<?php echo e(url('/home/dataKaryawan')); ?>">
         <i class="fas fa-fw fa-chart-area"></i>
         <span>Data Karyawan</span></a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{url('/home/dataNilaiKaryawan')}}">
+      <a class="nav-link" href="<?php echo e(url('/home/dataNilaiKaryawan')); ?>">
         <i class="fas fa-fw fa-table"></i>
         <span>Data Nilai karyawan</span></a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{url('/home/nilaiBobot')}}">
+      <a class="nav-link" href="<?php echo e(url('/home/nilaiBobot')); ?>">
         <i class="fas fa-fw fa-table"></i>
         <span>Nilai Bobot</span></a>
     </li>
     <li class="nav-item active">
-      <a class="nav-link" href="{{url('/home/nilaiNormalisasi')}}">
+      <a class="nav-link" href="<?php echo e(url('/home/nilaiNormalisasi')); ?>">
         <i class="fas fa-fw fa-table"></i>
         <span>Nilai Normalisasi</span></a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="{{url('/home/nilaiHasil')}}">
+      <a class="nav-link" href="<?php echo e(url('/home/nilaiHasil')); ?>">
         <i class="fas fa-fw fa-table"></i>
         <span>Nilai Hasil</span></a>
     </li>
@@ -57,18 +56,18 @@
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach ($data as $datas)
+                    <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $datas): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                     <tr>
                         <td><?php echo $no++; ?></td>
-                        <td>{{ $datas->nik }}</td>
-                        <td>{{ $datas->nama }}</td>
-                        <td>{{ $datas->jabatan }}</td>
-                        <td>{{ $datas->generalKnowledge }}</td>
-                        <td>{{ $datas->basic }}</td>
-                        <td>{{ $datas->intermediate }}</td>
-                        <td>{{ $datas->advance }}</td>
+                        <td><?php echo e($datas->nik); ?></td>
+                        <td><?php echo e($datas->nama); ?></td>
+                        <td><?php echo e($datas->jabatan); ?></td>
+                        <td><?php echo e($datas->generalKnowledge); ?></td>
+                        <td><?php echo e($datas->basic); ?></td>
+                        <td><?php echo e($datas->intermediate); ?></td>
+                        <td><?php echo e($datas->advance); ?></td>
                     </tr>
-                    @endforeach
+                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                   </tbody>
                 </table>
               </div>
@@ -84,4 +83,5 @@
         </div>
       </div>
     </footer>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.layoutApp', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\Projects\Laravel\SPK-KPI-PT-DI\resources\views/nav/nilaiNormalisasi.blade.php ENDPATH**/ ?>

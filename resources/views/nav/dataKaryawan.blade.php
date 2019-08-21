@@ -1,5 +1,42 @@
 @extends('layouts.layoutApp')
 @section('content')
+
+<!-- Sidebar -->
+<ul class="sidebar navbar-nav">
+  <li class="nav-item" id="dashboard">
+      <a class="nav-link" href="{{ url('/home') }}">
+      <i class="fas fa-fw fa-tachometer-alt"></i>
+      <span>Dashboard</span>
+    </a>
+  </li>
+  <li class="nav-item active">
+    <a class="nav-link" href="{{url('/home/dataKaryawan')}}">
+      <i class="fas fa-fw fa-chart-area"></i>
+      <span>Data Karyawan</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{url('/home/dataNilaiKaryawan')}}">
+      <i class="fas fa-fw fa-table"></i>
+      <span>Data Nilai karyawan</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{url('/home/nilaiBobot')}}">
+      <i class="fas fa-fw fa-table"></i>
+      <span>Nilai Bobot</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{url('/home/nilaiNormalisasi')}}">
+      <i class="fas fa-fw fa-table"></i>
+      <span>Nilai Normalisasi</span></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{url('/home/nilaiHasil')}}">
+      <i class="fas fa-fw fa-table"></i>
+      <span>Nilai Hasil</span></a>
+  </li>
+</ul>
+
+
 <?php $no = 1;?>
 <div id="content-wrapper">
     <div class="container-fluid">

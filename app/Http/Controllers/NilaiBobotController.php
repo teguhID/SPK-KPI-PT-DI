@@ -38,6 +38,19 @@ class NilaiBobotController extends Controller
 
     public function update(Request $req, $id)
     {
+        $this->validate($req,[
+            'generalKnowledge' => 'required',
+            'basic' => 'required',
+            'intermediate' => 'required',
+            'advance' => 'required',
+        ], 
+        [
+            'generalKnowledge.required' => 'isi yang bener ajig',
+            'basic.required' => 'isi yang bener ajig',
+            'intermediate.required' => 'isi yang bener ajig',
+            'advance.required' => 'isi yang bener ajig',
+        ]);
+
         if (Auth::user()->jabatan == 'SPV') {
             NilaiBobotModel::where('jabatan', 'Staff')->update($req->except(['_method', '_token']));
             $this->rumusMetode('Staff');

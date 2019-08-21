@@ -29,6 +29,28 @@ class DataKaryawanController extends Controller
     
     public function store(Request $req)
     {
+        $this->validate($req,[
+            'nama' => 'required',
+            'nik' => 'required',
+            'alamat' => 'required',
+            'jenisKelamin' => 'required',
+            'tempatLahir' => 'required',
+            'tanggalLahir' => 'required',
+            'divisi' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+        ], 
+        [
+            'nama.required' => 'isi yang bener ajig',
+            'nik.required' => 'isi yang bener ajig',
+            'alamat.required' => 'isi yang bener ajig',
+            'jenisKelamin.required' => 'isi yang bener ajig',
+            'tempatLahir.required' => 'isi yang bener ajig',
+            'tanggalLahir.required' => 'isi yang bener ajig',
+            'divisi.required' => 'isi yang bener ajig',
+            'email.required' => 'isi yang bener ajig',
+            'phone.required' => 'isi yang bener ajig',
+        ]);
         $data = DataKaryawanModel::create($req->all());
         if (Auth::user()->jabatan == 'SPV') {
             DataNilaiKaryawanModel::create(['idKaryawan' => $data->id,
@@ -123,6 +145,28 @@ class DataKaryawanController extends Controller
 
     public function update($id, Request $req)
     {
+        $this->validate($req,[
+            'nama' => 'required',
+            'nik' => 'required',
+            'alamat' => 'required',
+            'jenisKelamin' => 'required',
+            'tempatLahir' => 'required',
+            'tanggalLahir' => 'required',
+            'divisi' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+        ], 
+        [
+            'nama.required' => 'isi yang bener ajig',
+            'nik.required' => 'isi yang bener ajig',
+            'alamat.required' => 'isi yang bener ajig',
+            'jenisKelamin.required' => 'isi yang bener ajig',
+            'tempatLahir.required' => 'isi yang bener ajig',
+            'tanggalLahir.required' => 'isi yang bener ajig',
+            'divisi.required' => 'isi yang bener ajig',
+            'email.required' => 'isi yang bener ajig',
+            'phone.required' => 'isi yang bener ajig',
+        ]);
         DataKaryawanModel::find($id)->update($req->all());
         DataNilaiKaryawanModel::where('idKaryawan', $id)->update([
                                                                    'nama' => request('nama'),
@@ -143,6 +187,9 @@ class DataKaryawanController extends Controller
     public function destroy($id)
     {
         DataKaryawanModel::find($id)->delete();
+        DataNilaiKaryawanModel::where('idKaryawan', $id)->delete();
+        NilaiNormalisasiModel::where('idKaryawan', $id)->delete();
+        NilaiHasilModel::where('idKaryawan', $id)->delete();
         return redirect('/home/dataKaryawan');
     }
 }
