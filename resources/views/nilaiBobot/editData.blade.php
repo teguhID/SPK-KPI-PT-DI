@@ -46,28 +46,28 @@
                 <div class="form-group row">
                     <label for="colFormLabel" class="col-sm-2 col-form-label">General Knowledge</label>
                     <div class="col-sm-10">
-                        <input type="number" class="form-control" id="generalKnowledge" name="generalKnowledge" value="{{ $data->generalKnowledge }}">
+                        <input type="number" step=any class="form-control" id="generalKnowledge" name="generalKnowledge" value="{{ $data->generalKnowledge }}">
                         <p style="color:red"><?php echo $errors->first('generalKnowledge') ?></p>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="colFormLabel" class="col-sm-2 col-form-label">Basic</label>
                     <div class="col-sm-10">
-                        <input type="number" class="form-control" id="basic" name="basic" value="{{ $data->basic }}">
+                        <input type="number" step=any class="form-control" id="basic" name="basic" value="{{ $data->basic }}">
                         <p style="color:red"><?php echo $errors->first('basic') ?></p>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="colFormLabel" class="col-sm-2 col-form-label">Intermediate</label>
                     <div class="col-sm-10">
-                        <input type="number" class="form-control" id="intermediate" name="intermediate" value="{{ $data->intermediate }}">
+                        <input type="number" step=any class="form-control" id="intermediate" name="intermediate" value="{{ $data->intermediate }}">
                         <p style="color:red"><?php echo $errors->first('intermediate') ?></p>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="colFormLabel" class="col-sm-2 col-form-label">Advance</label>
                     <div class="col-sm-10">
-                        <input type="number" class="form-control" id="advance" name="advance" value="{{ $data->advance }}">
+                        <input type="number" step=any class="form-control" id="advance" name="advance" value="{{ $data->advance }}">
                         <p style="color:red"><?php echo $errors->first('advance') ?></p>
                     </div>
                 </div>
